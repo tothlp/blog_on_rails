@@ -1,12 +1,13 @@
 class ArticlesController < ApplicationController
-  protect_from_forgery prepend: true
+  protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @articles = Article.all
   end
 
   def list
-    before_action :authenticate_user!
     @articles = Article.all
     render 'list'
   end
@@ -16,17 +17,14 @@ class ArticlesController < ApplicationController
   end
 
   def new
-    before_action :authenticate_user!
     @article = Article.new
   end
 
   def edit
-    before_action :authenticate_user!
     @article = Article.find(params[:id])
   end
 
   def create
-    before_action :authenticate_user!
     @article = Article.new(article_params)
 
     if @article.save
@@ -37,7 +35,6 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    before_action :authenticate_user!
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
@@ -48,7 +45,6 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    before_action :authenticate_user!
     @article = Article.find(params[:id])
     @article.destroy
 

@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
-
-
-  http_basic_authenticate_with name: "tothl", password: "Mis3r3r3M3i",
-                               only: :destroy
+  protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!, except: [:create]
 
   def create
     @article = Article.find(params[:article_id])

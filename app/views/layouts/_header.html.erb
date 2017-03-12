@@ -35,8 +35,11 @@
               <li><%= link_to 'Listázás', pages_path %></li>
             </ul>
           </li>
+          <li>
+              <li><%= link_to 'Kijelentkezés', destroy_user_session_path, method: 'delete' %></li>
+          </li>
           <% else %>
-            <li><span class="glyphicon glyphicon-log-in"></span> <%= link_to 'Bejelentkezés', '/users/sign_in' %></li>
+            <li><%= link_to 'Bejelentkezés', new_user_session_path %></li>
           <% end %>
         </ul>
       </div>

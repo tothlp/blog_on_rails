@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
-
-  protect_from_forgery prepend: true
+  protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :authenticate_user!, except: [:start, :show]
 
   def start
     @page = Page.find(1)
@@ -16,17 +17,14 @@ class PagesController < ApplicationController
   end
 
   def new
-    before_action :authenticate_user!
     @page = Page.new
   end
 
   def edit
-    before_action :authenticate_user!
     @page = Page.find(params[:id])
   end
 
   def create
-    before_action :authenticate_user!
     @page = Page.new(page_params)
 
     if @page.save
@@ -37,7 +35,6 @@ class PagesController < ApplicationController
   end
 
   def update
-    before_action :authenticate_user!
     @page = Page.find(params[:id])
 
     if @page.update(page_params)
@@ -48,7 +45,6 @@ class PagesController < ApplicationController
   end
 
   def destroy
-    before_action :authenticate_user!
     @page = Page.find(params[:id])
     @page.destroy
 

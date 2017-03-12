@@ -1,7 +1,7 @@
 <h1><%= @article.title %></h1>
 <h5><span class="glyphicon glyphicon-time"></span> tothl, <%= @article.created_at %></h5>
 <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
-<p> <%= @article.text %> </p>
+<p> <%= raw(@article.text) %> </p>
 <hr>
 
 <h4>Szólj hozzá!</h4>
