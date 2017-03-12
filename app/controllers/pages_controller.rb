@@ -3,7 +3,7 @@ class PagesController < ApplicationController
                                except: [:index, :show]
 
   def start
-    @page = Page.find(2)
+    @page = Page.find(1)
     render 'show'
   end
 
