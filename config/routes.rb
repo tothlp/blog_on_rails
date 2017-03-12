@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   
 root 'articles#index'
 
+
+  get 'admin/articles', to: 'articles#list'
+
 end

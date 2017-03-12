@@ -1,19 +1,20 @@
-<p>
-  <strong>Cím:</strong>
-  <%= @article.title %>
-</p>
+<h4>
+  <small>Legutóbbi Bejegyzések</small>
+</h4>
+<hr>
+<h2><%= @article.title %></h2>
+<h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
+<h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
+<p> <%= @article.text %> </p>
+<hr>
 
-<p>
-  <strong>Szöveg:</strong>
-  <%= @article.text %>
-</p>
-
-<h2>Comments</h2>
-
-    <%= render @article.comments %>
-
-<h2>Add a comment:</h2>
+<h4>Szólj hozzá!</h4>
 <%= render 'comments/form' %>
+<br><br>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<p><span class="badge">2</span> Comments:</p><br>
+<%= render @article.comments %>
+
+
+<%= link_to 'Szerkesztés', edit_article_path(@article) %> |
+<%= link_to 'Vissza', articles_path %>

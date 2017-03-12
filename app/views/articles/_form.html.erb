@@ -1,32 +1,29 @@
+<form role="form">
+  <div class="form-group">
 
-<%= form_for @article do |f| %>
+    <%= form_for @article do |f| %>
 
-    <% if @article.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@article.errors.count, "error") %> prohibited
-            this article from being saved:
-          </h2>
-          <ul>
-            <% @article.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
+        <% if @article.errors.any? %>
+            <div id="error_explanation">
+              <h2>
+                <%= @article.errors.count %> hiba miatt nem hozható létre a bejegyzés:
+              </h2>
+              <ul>
+                <% @article.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+
+        <%= f.label :title, "Cím" %>
+        <%= f.text_field :title, class: 'form-control' %>
+        <%= f.label :text, "Tartalom" %>
+        <%= f.text_area :text, class: 'form-control', rows: 8 %>
+
         </div>
+        <%= f.submit "Uccu!", class: 'btn btn-default' %>
+
     <% end %>
-
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
-
-    <p>
-      <%= f.label :text %><br>
-      <%= f.text_area :text %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
-
-<% end %>
+    </form>

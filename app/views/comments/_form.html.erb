@@ -1,13 +1,11 @@
+<form role="form">
 <%= form_for([@article, @article.comments.build]) do |f| %>
-    <p>
-      <%= f.label :commenter %><br>
-      <%= f.text_field :commenter %>
-    </p>
-    <p>
-      <%= f.label :body %><br>
-      <%= f.text_area :body %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
+      <div class="form-group">
+        <%= f.label(:commenter, "Név") %>
+        <%= f.text_field :commenter, class: 'form-control', rows: 3 %>
+        <%= f.label :body , "Hozzászólás" %>
+        <%= f.text_area :body, class: 'form-control', rows: 5%>
+      </div>
+      <%= f.submit "Hozzászólás beküldése", class: 'btn btn-default' %>
 <% end %>
+</form>

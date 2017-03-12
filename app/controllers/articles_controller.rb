@@ -7,6 +7,11 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end
 
+  def list
+    @articles = Article.all
+    render 'articles/list'
+  end
+
   def show
     @article = Article.find(params[:id])
   end
