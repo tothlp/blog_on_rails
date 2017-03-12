@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
 
   def list
     @articles = Article.all
-    render 'articles/list'
+    render 'list'
   end
 
   def show
@@ -48,7 +48,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to articles_path
+    redirect_to admin_articles_path
   end
 
   private

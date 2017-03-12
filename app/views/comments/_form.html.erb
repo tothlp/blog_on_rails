@@ -1,4 +1,3 @@
-<form role="form">
 <%= form_for([@article, @article.comments.build]) do |f| %>
       <div class="form-group">
         <%= f.label(:commenter, "Név") %>
@@ -8,4 +7,3 @@
       </div>
       <%= f.submit "Hozzászólás beküldése", class: 'btn btn-default' %>
 <% end %>
-</form>

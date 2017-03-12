@@ -1,20 +1,14 @@
-<h4>
-  <small>Legutóbbi Bejegyzések</small>
-</h4>
-<hr>
-<h2><%= @article.title %></h2>
-<h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
+<h1><%= @article.title %></h1>
+<h5><span class="glyphicon glyphicon-time"></span> tothl, <%= @article.created_at %></h5>
 <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
 <p> <%= @article.text %> </p>
 <hr>
 
 <h4>Szólj hozzá!</h4>
 <%= render 'comments/form' %>
-<br><br>
 
-<p><span class="badge">2</span> Comments:</p><br>
+<p><span class="badge"><%= @article.comments.count %></span> Hozzászólás:</p><br>
+<% if @article.comments.count > 0 %>
 <%= render @article.comments %>
-
-
-<%= link_to 'Szerkesztés', edit_article_path(@article) %> |
+<% end %>
 <%= link_to 'Vissza', articles_path %>
