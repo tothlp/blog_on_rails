@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
-  http_basic_authenticate_with name: "tothl", password: "Mis3r3r3M3i",
-                               except: [:index, :show]
+
+  protect_from_forgery prepend: true
 
   def start
     @page = Page.find(1)
@@ -16,14 +16,17 @@ class PagesController < ApplicationController
   end
 
   def new
+    before_action :authenticate_user!
     @page = Page.new
   end
 
   def edit
+    before_action :authenticate_user!
     @page = Page.find(params[:id])
   end
 
   def create
+    before_action :authenticate_user!
     @page = Page.new(page_params)
 
     if @page.save
@@ -34,6 +37,7 @@ class PagesController < ApplicationController
   end
 
   def update
+    before_action :authenticate_user!
     @page = Page.find(params[:id])
 
     if @page.update(page_params)
@@ -44,6 +48,7 @@ class PagesController < ApplicationController
   end
 
   def destroy
+    before_action :authenticate_user!
     @page = Page.find(params[:id])
     @page.destroy
 

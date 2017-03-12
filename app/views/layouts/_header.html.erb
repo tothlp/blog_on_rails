@@ -18,7 +18,7 @@
           <li><%= link_to "Blog", articles_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Bejelentkezés</a></li>
+          <% if user_signed_in? %>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bejegyzések
               <span class="caret"></span></a>
@@ -35,6 +35,9 @@
               <li><%= link_to 'Listázás', pages_path %></li>
             </ul>
           </li>
+          <% else %>
+            <li><span class="glyphicon glyphicon-log-in"></span> <%= link_to 'Bejelentkezés', '/users/sign_in' %></li>
+          <% end %>
         </ul>
       </div>
     </div>

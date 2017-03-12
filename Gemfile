@@ -25,6 +25,7 @@ gem 'coffee-rails', '~> 4.2'
 #Saját cuccok
 gem 'bootstrap-sass', '3.3.6'
 gem 'tinymce-rails'
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
