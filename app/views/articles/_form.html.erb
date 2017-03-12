@@ -18,8 +18,8 @@
         <%= f.label :title, "Cím" %>
         <%= f.text_field :title, class: 'form-control' %>
         <%= f.label :text, "Tartalom" %>
-        <%= f.text_area :text, class: 'form-control', rows: 8 %>
-
+        <%= f.text_area :text, :class => "tinymce", :rows => 40, :cols => 20 %>
+        <%= tinymce %>
     </div>
         <%= f.submit "Uccu!", class: 'btn btn-default' %>
 

@@ -1,0 +1,26 @@
+<%= form_for @page do |f| %>
+
+        <% if @page.errors.any? %>
+            <div id="error_explanation">
+              <h2>
+                <%= @page.errors.count %> hiba miatt nem hozható létre a bejegyzés:
+              </h2>
+              <ul>
+                <% @page.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+
+    <div class="form-group">
+      <div class="input-group">
+      <span class="input-group-addon">Cím</span>
+        <%= f.text_field :title, class: 'form-control input-lg' %>
+      </div>
+        <%= f.text_area :body, :class => "tinymce", :rows => 40, :cols => 20 %>
+        <%= tinymce %>
+    </div>
+        <%= f.submit "Uccu!", class: 'btn btn-success', float:'right' %>
+        <%= link_to 'Mégsem', pages_path, class:'btn btn-danger' %>
+<% end %>
