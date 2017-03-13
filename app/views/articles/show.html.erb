@@ -1,5 +1,6 @@
 <h1><%= @article.title %></h1>
-<h5><span class="glyphicon glyphicon-time"></span> tothl, <%= @article.created_at %></h5>
+<h5><span class="glyphicon glyphicon-user"></span> <%= @article.user.username %>
+  <span class="glyphicon glyphicon-time"></span> <%= @article.created_at %></h5>
 <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
 <p> <%= raw(@article.text) %> </p>
 <hr>

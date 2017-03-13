@@ -11,5 +11,6 @@ class User < ApplicationRecord
     false
   end
 
+  has_many :articles
 
 end
