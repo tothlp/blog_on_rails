@@ -5,7 +5,7 @@
     </h2>
     <h5><span class="glyphicon glyphicon-time"></span> Jane Dane, <%= article.created_at %>
       <span class="badge"><%= article.comments.count %></span><small> hozzászólás</small></h5>
-    <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
-    <p class="post"> <%= article.text %> </p>
+    <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5>
+    <%= raw(article.text) %>
     <hr>
 <% end %>
