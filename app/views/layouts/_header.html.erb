@@ -13,33 +13,61 @@
         <ul class="nav navbar-nav navbar-left">
           <% @pages = Page.all %>
           <% @pages.each do |page| %>
-          <li><%= link_to page.title, page_path(page) %></li>
+              <li><%= link_to page.title, page_path(page) %></li>
           <% end %>
           <li><%= link_to "Blog", articles_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bejegyzések
-              <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Hozzáadás', new_article_path %></li>
-              <li><%= link_to 'Listázás', admin_articles_path %></li>
-            </ul>
-          </li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Oldalak
-              <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Hozzáadás', new_page_path %></li>
-              <li><%= link_to 'Listázás', pages_path %></li>
-            </ul>
-          </li>
-          <li>
-              <li><%= link_to 'Kijelentkezés', destroy_user_session_path, method: 'delete' %></li>
-          </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bejegyzések
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Hozzáadás', new_article_path %></li>
+                  <li><%= link_to 'Listázás', admin_articles_path %></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Oldalak
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Hozzáadás', new_page_path %></li>
+                  <li><%= link_to 'Listázás', pages_path %></li>
+                </ul>
+              </li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Felhasználók
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Hozzáadás', new_user_registration_path %></li>
+
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Helló, <%= current_user.username %>!
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to 'Kijelentkezés', destroy_user_session_path, method: 'delete' %></li>
+
+                </ul>
+              </li>
           <% else %>
-            <li><%= link_to 'Bejelentkezés', new_user_session_path %></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bejelentkezés
+                  <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <%= form_for(:user, :url => session_path(:user), html: {class: "navbar-form"}) do |f| %>
+                      <div class="form-group">
+                        <%= f.label :username, 'Felhasználónév' %>
+                        <%= f.text_field :username, class: 'form-group' %>
+                        <%= f.label :password, 'Jelszó' %>
+                        <%= f.password_field :password , class: 'form-group'%>
+                      </div>
+                      <%= f.submit 'Bejelentkezés' %>
+                  <% end %>
+                </ul>
+              </li>
           <% end %>
         </ul>
       </div>

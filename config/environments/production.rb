@@ -83,4 +83,9 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Levelezési környezet beállítása Herokura
+  config.action_mailer.default_url_options = { host: 'http://tothlp.herokuapp.com' }
+
+
 end
