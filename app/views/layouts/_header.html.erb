@@ -59,13 +59,15 @@
                   <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <%= form_for(:user, :url => session_path(:user), html: {class: "navbar-form"}) do |f| %>
-                      <div class="form-group">
-                        <%= f.label :username, 'Felhasználónév' %>
-                        <%= f.text_field :username, class: 'form-group' %>
-                        <%= f.label :password, 'Jelszó' %>
-                        <%= f.password_field :password , class: 'form-group'%>
-                      </div>
-                      <%= f.submit 'Bejelentkezés' %>
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <%= f.text_field :username, class: 'form-control', placeholder: 'Felhasználónév' %>
+                        </div>
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <%= f.password_field :password , class: 'form-control', placeholder: 'Jelszó' %>
+                        </div>
+                      <%= f.submit 'Bejelentkezés', class:'btn btn-success' %>
                   <% end %>
                 </ul>
               </li>
