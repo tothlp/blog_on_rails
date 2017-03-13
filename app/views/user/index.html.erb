@@ -19,7 +19,7 @@
           </td>
 
           <td> <%= user.admin? %> </td>
-          <td> <%= user.created_at %></td>
+          <td> <%= user.created_at.strftime(Setting.find_by_key('dateformat').value) %></td>
           <td><span class="glyphicon glyphicon-time"></span>
             <%= link_to 'Szerkesztés', edit_user_path(user) %></td>
           <td><%= link_to 'Törlés', user_path(user),

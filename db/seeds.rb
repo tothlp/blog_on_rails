@@ -6,20 +6,33 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.all.each do |user|
-  user.destroy
-end
+# User.all.each do |user|
+#   user.destroy
+# end
+#
+# users_list = [
+#     [ "tothlp", "tlplaszlo@gmail.com", "Mis3r3r3M3i", "true"],
+#     [ "bogizoli","bogaromi@msn.com", "zeuszka" , "true"]
+# ]
+#
+# users_list.each do |username, email, password, admin|
+#   User.create!( username: username, email: email, password: password, admin: admin)
+# end
+#
+# Page.all.each do |page|
+#   page.destroy
+# end
+# Page.create!(id: 1, title: "Kezdőlap", body:"Hello Világ")
+# end
 
-users_list = [
-    [ "tothlp", "tlplaszlo@gmail.com", "Mis3r3r3M3i", "true"],
-    [ "bogizoli","bogaromi@msn.com", "zeuszka" , "true"]
+settings=[
+    ["title", "tothlp @ szte", "Az oldal címe"],
+    ["header_title", "Tóth László", "Fejléc címe"],
+    ["header_description", "Programtervező informatikus @ SZTE", "Fejléc leírása"],
+    ["dateformat", "%Y.%m.%d", "Rövid dátumformátum"],
+    ["dateformat_long", "%Y.%m.%d %H:%m", "Dátumformátum idővel"]
 ]
 
-users_list.each do |username, email, password, admin|
-  User.create!( username: username, email: email, password: password, admin: admin)
+settings.each do |key, value, description|
+  Setting.create!(key: key, value: value, description: description)
 end
-
-Page.all.each do |page|
-  page.destroy
-end
-Page.create!(id: 1, title: "Kezdőlap", body:"Hello Világ")

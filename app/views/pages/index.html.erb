@@ -16,10 +16,10 @@
           </td>
 
           <td>
-            <%= page.created_at %>
+            <%= page.created_at.strftime(Setting.find_by_key('dateformat').value) %>
           </td>
 
-          <td> <%= page.updated_at %> </td>
+          <td> <%= page.updated_at.strftime(Setting.find_by_key('dateformat').value) %> </td>
           <td> tothl </td>
           <td><span class="glyphicon glyphicon-time"></span>
             <%= link_to 'Szerkesztés', edit_page_path(page) %></td>

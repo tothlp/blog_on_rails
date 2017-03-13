@@ -1,0 +1,23 @@
+<h2 class="text-center">Beállítások</h2>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <tr>
+      <th>Kulcs</th>
+      <th>Érték</th>
+      <th>Leírás</th>
+      <th colspan="2"></th>
+    </tr>
+    <% @settings.each do |setting| %>
+        <tr>
+          <td><%= setting.key %></td>
+          <td><%= setting.value %></td>
+          <td> <%= setting.description %> </td>
+          <td><span class="glyphicon glyphicon-time"></span>
+            <%= link_to 'Szerkesztés', edit_setting_path(setting) %></td>
+          <td><%= link_to 'Törlés', setting_path(setting),
+                          method: :delete,
+                          data: { confirm: 'Biztos?' } %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
