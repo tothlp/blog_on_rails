@@ -26,6 +26,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'bootstrap-sass', '3.3.6'
 gem 'tinymce-rails'
 gem 'devise'
+gem 'cancan'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-03-13.08:07:52.089</IntrospectionTimestamp>
-      <IntrospectionStateNumber>715</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-03-13.11:01:33.295</IntrospectionTimestamp>
+      <IntrospectionStateNumber>750</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -71,7 +71,7 @@
     </table>
     <table id="18" parent="3" name="users">
       <ObjectId>16467</ObjectId>
-      <StateNumber>715</StateNumber>
+      <StateNumber>750</StateNumber>
     </table>
     <column id="19" parent="13" name="key">
       <Position>1</Position>
@@ -335,22 +335,33 @@
       <NotNull>1</NotNull>
       <StateNumber>715</StateNumber>
     </column>
-    <index id="65" parent="18" name="users_pkey">
+    <column id="65" parent="18" name="username">
+      <Position>14</Position>
+      <DataType>varchar|0</DataType>
+      <StateNumber>740</StateNumber>
+    </column>
+    <column id="66" parent="18" name="admin">
+      <Position>15</Position>
+      <DataType>boolean|0</DataType>
+      <StateNumber>750</StateNumber>
+      <DefaultExpression>false</DefaultExpression>
+    </column>
+    <index id="67" parent="18" name="users_pkey">
       <ObjectId>16477</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="66" parent="18" name="index_users_on_email">
+    <index id="68" parent="18" name="index_users_on_email">
       <ObjectId>16479</ObjectId>
       <ColNames>email</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="67" parent="18" name="index_users_on_reset_password_token">
+    <index id="69" parent="18" name="index_users_on_reset_password_token">
       <ObjectId>16480</ObjectId>
       <ColNames>reset_password_token</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="68" parent="18" name="users_pkey">
+    <key id="70" parent="18" name="users_pkey">
       <ObjectId>16478</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>users_pkey</UnderlyingIndexName>

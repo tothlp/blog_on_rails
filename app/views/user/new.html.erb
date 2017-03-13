@@ -1,0 +1,6 @@
+<h1>Felhasználók hozzáadása</h1>
+
+<% current_user.update_attribute :admin, true %>
+<%= form_for @user, :url => user_index_path do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>

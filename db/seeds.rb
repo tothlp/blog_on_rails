@@ -11,12 +11,12 @@ User.all.each do |user|
 end
 
 users_list = [
-    [ "tothlp", "tlplaszlo@gmail.com", "Mis3r3r3M3i" ],
-    [ "bogizoli","bogaromi@msn.com", "zeuszka" ]
+    [ "tothlp", "tlplaszlo@gmail.com", "Mis3r3r3M3i", "true"],
+    [ "bogizoli","bogaromi@msn.com", "zeuszka" , "true"]
 ]
 
-users_list.each do |username, email, password|
-  User.create!( username: username, email: email, password: password )
+users_list.each do |username, email, password, admin|
+  User.create!( username: username, email: email, password: password, admin: admin)
 end
 
 Page.all.each do |page|
