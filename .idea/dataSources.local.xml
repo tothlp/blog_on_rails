@@ -6,8 +6,8 @@
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
       <user-name>tothl</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe8dfe6dfe5dfeddff5dfeedfebdffedfebdfe8dfebdff9dfefdff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <resolve-scope>blog_production:public,tothl</resolve-scope>
     </data-source>
     <data-source name="Rails blog: development" uuid="48a7ab51-6465-49f7-9990-5b322eda99cb">
@@ -24,6 +24,7 @@
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>
       <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
       <user-name>tothl</user-name>
       <resolve-scope>blog_test:public,tothl</resolve-scope>
     </data-source>
