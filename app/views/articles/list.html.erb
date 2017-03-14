@@ -16,10 +16,10 @@
           </td>
 
           <td>
-            <%= article.created_at.strftime(Setting.find_by_key('dateformat_long').value) %>
+            <%= article.created_at.strftime("%Y.%m.%d. %H:%m") %>
           </td>
 
-          <td> <%= article.updated_at.strftime(Setting.find_by_key('dateformat_long').value) %> </td>
+          <td> <%= article.updated_at.strftime("%Y.%m.%d. %H:%m") %> </td>
           <td> <%= article.user.username %> </td>
           <td><span class="glyphicon glyphicon-time"></span>
             <%= link_to 'Szerkesztés', edit_article_path(article) %></td>
