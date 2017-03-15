@@ -1,23 +1,47 @@
 <h2 class="text-center">Beállítások</h2>
 <div class="table-responsive">
-  <table class="table table-striped table-hover">
-    <tr>
-      <th>Kulcs</th>
-      <th>Érték</th>
-      <th>Leírás</th>
-      <th colspan="2"></th>
-    </tr>
-    <% @settings.each do |setting| %>
+
+  <button type="button" class="btn btn-link btn-sm" data-toggle="collapse" data-target="#add"><%= fa_stacked_icon "plus inverse", base: "circle", class: "fa-1x" %></button>
+  <br>
+  <div id="add" class="collapse panel panel-default">
+    <div class="panel-body"><%= render 'form' %> </div>
+  </div>
+
+  <% if @settings.count >0  %>
+      <table class="table table-hover table-striped">
         <tr>
-          <td><%= setting.key %></td>
-          <td><%= setting.value %></td>
-          <td> <%= setting.description %> </td>
-          <td><span class="glyphicon glyphicon-time"></span>
-            <%= link_to 'Szerkesztés', edit_setting_path(setting) %></td>
-          <td><%= link_to 'Törlés', setting_path(setting),
-                          method: :delete,
-                          data: {confirm: 'Biztos?'} %></td>
+          <th>Kulcs</th>
+          <th>Érték</th>
+          <th colspan="3">Leírás</th>
         </tr>
-    <% end %>
-  </table>
+        <% @settings.each do |setting| %>
+            <tr>
+
+              <td>
+                <%= setting.key %>
+              </td>
+
+              <td>
+                <%= setting.value %>
+              </td>
+
+              <td>
+                <%= setting.description %>
+              </td>
+
+              <td class="pull-right">
+                <%= link_to edit_setting_path(setting) do %>
+                    <%= fa_stacked_icon "pencil inverse", base: "circle", class: "fa-1x" %>
+                <% end %>
+                <%= link_to setting_path(setting), method: :delete, data: {confirm: 'Biztos?'} do %>
+                    <%= fa_stacked_icon "trash inverse", base: "circle", class: "fa-1x" %>
+                <% end %>
+              </td>
+            </tr>
+        <% end %>
+
+      </table>
+  <% else %>
+      <% flash[:notice] = "Még nem lett létrehozva egy beállítás sem." %>
+  <% end %>
 </div>

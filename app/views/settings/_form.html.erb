@@ -1,0 +1,22 @@
+<%= form_for :setting do |f| %>
+    <div class="form-group">
+
+      <div class="input-group">
+        <span class="input-group-addon">Kulcs</span>
+        <%= f.text_field :key, class: 'form-control' %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">Érték</span>
+        <%= f.text_field :value, class: 'form-control' %>
+      </div>
+
+      <div class="input-group">
+        <span class="input-group-addon">Leírás</span>
+        <%= f.text_field :description, class: 'form-control' %>
+      </div>
+
+    </div>
+    <%= f.submit "Mentés", class: 'btn btn-default' %>
+
+<% end %>

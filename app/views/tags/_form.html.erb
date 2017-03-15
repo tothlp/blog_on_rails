@@ -1,13 +1,12 @@
+<%= form_for :tag do |f| %>
+    <div class="form-group">
 
-  <%= form_for :tag do |f| %>
-      <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
 
-        <div class="input-group">
-          <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-
-          <%= f.text_field :name, class: 'form-control' %>
-        </div>
+        <%= f.text_field :name, class: 'form-control' %>
       </div>
-      <%= f.submit "Uccu!", class: 'btn btn-default' %>
+    </div>
+    <%= f.submit "Uccu!", class: 'btn btn-default' %>
 
-  <% end %>
+<% end %>

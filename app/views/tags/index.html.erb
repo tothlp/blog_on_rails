@@ -1,6 +1,6 @@
 <h2 class="text-center">Címkék</h2>
 <div class="table-responsive">
-  <!-- Trigger the modal with a button -->
+
   <button type="button" class="btn btn-link btn-sm" data-toggle="collapse" data-target="#add"><%= fa_stacked_icon "plus inverse", base: "circle", class: "fa-1x" %></button>
   <br>
   <div id="add" class="collapse panel panel-default">
@@ -8,7 +8,7 @@
   </div>
 
   <% if @tags.count >0  %>
-      <table class="table table-hover">
+      <table class="table table-hover table-striped">
         <tr>
           <th colspan="3">Tag</th>
         </tr>

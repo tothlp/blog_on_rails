@@ -69,7 +69,9 @@
 
               <!--Beállítások-->
               <!--TODO HTML-safe-es részeket kijavítani!! -->
-              <li><%= link_to '<i class="glyphicon glyphicon-cog"></i> Beállítások'.html_safe, settings_path %></li>
+              <li><%= link_to settings_path do %>
+                    <%= fa_icon "cog", class: "fa-1x" %> Beállítások
+                <% end %></li>
 
               <!--Felhasználói menü-->
               <li class="dropdown">
