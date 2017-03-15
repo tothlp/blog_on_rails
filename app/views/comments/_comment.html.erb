@@ -1,11 +1,11 @@
 
-<div class="row">
-  <div class="col-sm-2 text-right">
-    <%= image_tag 'redpanda.jpg', class: 'img-circle', size:'100x100', alt:'Avatar' %>
+<div class="media">
+  <div class="media-left">
+    <%= image_tag 'redpanda.jpg', class: 'img-circle media-object', width:'75', alt:'Avatar' %>
   </div>
-  <div class="col-sm-10">
+  <div class="media-body">
     <div class="panel panel-default">
-      <div class="panel-heading"><h4><%= comment.commenter %> <small><%= comment.created_at %> </small></h4></div>
+      <div class="panel-heading media-heading"><h4><%= comment.commenter %> <small><%= comment.created_at.strftime("%Y.%m.%d. %H:%m") %> </small></h4></div>
       <div class="panel-body"><%= comment.body %></div>
       <% if user_signed_in? && current_user.admin? %>
           <div class="panel-footer"><small><%= link_to 'Hozzászólás törlése', [comment.article, comment],

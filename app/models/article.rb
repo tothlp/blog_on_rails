@@ -1,6 +1,6 @@
 class Article < ApplicationRecord
   has_many :comments, dependent: :destroy
-  has_many :tags, dependent: :destroy
+  has_and_belongs_to_many :tags
   belongs_to :user
   validates :title, presence: true,
             length: { minimum: 5 }

@@ -18,12 +18,13 @@ Rails.application.routes.draw do
   # Cikkek és hozzá tartozó commentek.
   resources :articles do
     resources :comments
-    resources :tags
   end
+  resources :tags
 
   # A cikkek listázása, "Admin"-ként
   get 'admin/articles', to: 'articles#list'
 
+  # get '/tags', to: 'tags#list', as: 'tags'
 
   resources :pages
 

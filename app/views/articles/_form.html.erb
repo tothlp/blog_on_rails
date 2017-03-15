@@ -14,13 +14,20 @@
         <% end %>
 
     <div class="form-group">
-
-        <%= f.label :title, "Cím" %>
-        <%= f.text_field :title, class: 'form-control' %>
-        <%= f.label :text, "Tartalom" %>
-        <%= f.text_area :text, :class => "tinymce", :rows => 40, :cols => 20 %>
+      <div class="input-group">
+        <span class="input-group-addon">Cím</span>
+        <%= f.text_field :title, class: 'form-control input-lg' %>
+      </div>
+        <%= f.text_area :text, :class => "tinymce", :rows => 15, :cols => 20 %>
         <%= tinymce %>
-    </div>
-        <%= f.submit "Uccu!", class: 'btn btn-default' %>
+
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i> </span>
+        <%= f.collection_select(:tags, Tag.all, :id, :name,) %>
+      </div>
+
+      </div>
+
+        <%= f.submit "Uccu!", class: 'btn btn-success' %>
 
 <% end %>

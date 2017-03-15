@@ -40,3 +40,4 @@ settings=[
 settings.each do |key, value, description|
   Setting.create!(key: key, value: value, description: description)
 end
+
