@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  # Felhasználókezelés, és védelem
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, except: [:create]
@@ -17,8 +18,8 @@ class CommentsController < ApplicationController
   end
 
   private
-    def comment_params
-      params.require(:comment).permit(:commenter, :body)
-    end
+  def comment_params
+    params.require(:comment).permit(:commenter, :body)
+  end
 
 end

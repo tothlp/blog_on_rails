@@ -2,23 +2,39 @@
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
+
+        <!-- Hamburger menü -->
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+
+        <!-- Oldallogo -->
         <%= link_to "tothl", root_path, id: "logo" %>
+
       </div>
+
       <div class="collapse navbar-collapse" id="mainNavbar">
+
+        <!-- Felhasználói menü -->
         <ul class="nav navbar-nav navbar-left">
+
+          <!-- A létrehozott oldalakat iteráljuk végig, és szúrjuk be a linket. -->
           <% @pages = Page.all %>
           <% @pages.each do |page| %>
               <li><%= link_to page.title, page_path(page) %></li>
           <% end %>
+
+          <!-- Link a Blog modulhoz -->
           <li><%= link_to "Blog", articles_path %></li>
         </ul>
+
+        <!-- Adminisztátori menü -->
         <ul class="nav navbar-nav navbar-right">
+
           <% if user_signed_in? %>
+              <!--Bejegyzések menü-->
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Bejegyzések
                   <span class="caret"></span></a>
@@ -26,9 +42,11 @@
                   <li><%= link_to 'Hozzáadás', new_article_path %></li>
                   <li><%= link_to 'Listázás', admin_articles_path %></li>
                   <li class="divider"></li>
-                  <li><%= link_to 'Címkék',  tags_path %></li>
+                  <li><%= link_to 'Címkék', tags_path %></li>
                 </ul>
               </li>
+
+              <!--Oldalak menü-->
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Oldalak
                   <span class="caret"></span></a>
@@ -38,6 +56,7 @@
                 </ul>
               </li>
 
+              <!--Felhasználók-->
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Felhasználók
                   <span class="caret"></span></a>
@@ -48,31 +67,38 @@
                 </ul>
               </li>
 
+              <!--Beállítások-->
+              <!--TODO HTML-safe-es részeket kijavítani!! -->
               <li><%= link_to '<i class="glyphicon glyphicon-cog"></i> Beállítások'.html_safe, settings_path %></li>
 
+              <!--Felhasználói menü-->
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Helló, <%= current_user.username %>!
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span>
+                  Helló, <%= current_user.username %>!
                   <span class="caret"></span></a>
                 <ul class="dropdown-menu navbar-inverse nav navbar-nav">
-                  <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i> Kijelentkezés'.html_safe, destroy_user_session_path, method: 'delete', class: 'nav'%></li>
+                  <li><%= link_to '<i class="glyphicon glyphicon-log-out"></i> Kijelentkezés'.html_safe, destroy_user_session_path, method: 'delete', class: 'nav' %></li>
 
                 </ul>
               </li>
           <% else %>
+
+              <!--Bejelentkeztetés, formmal-->
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span> Bejelentkezés
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-log-in"></span>
+                  Bejelentkezés
                   <span class="caret"></span></a>
                 <ul class="dropdown-menu navbar-inverse nav navbar-nav">
                   <%= form_for(:user, :url => session_path(:user), html: {class: "navbar-form"}) do |f| %>
-                        <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                         <%= f.text_field :username, class: 'form-control', placeholder: 'Felhasználónév' %>
-                        </div>
-                        <div class="input-group">
-                          <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                        <%= f.password_field :password , class: 'form-control', placeholder: 'Jelszó' %>
-                        </div>
-                      <%= f.submit 'Bejelentkezés', class:'btn btn-success' %>
+                      </div>
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <%= f.password_field :password, class: 'form-control', placeholder: 'Jelszó' %>
+                      </div>
+                      <%= f.submit 'Bejelentkezés', class: 'btn btn-success' %>
                   <% end %>
                 </ul>
               </li>

@@ -1,4 +1,3 @@
-
 <h2 class="text-center">Oldalak listázása</h2>
 <div class="table-responsive">
   <table class="table table-striped table-hover">
@@ -20,12 +19,12 @@
           </td>
 
           <td> <%= page.updated_at.strftime("%Y.%m.%d. %H:%m") %> </td>
-          <td> tothl </td>
+          <td> tothl</td>
           <td><span class="glyphicon glyphicon-time"></span>
             <%= link_to 'Szerkesztés', edit_page_path(page) %></td>
           <td><%= link_to 'Törlés', page_path(page),
-                        method: :delete,
-                        data: { confirm: 'Biztos?' } %></td>
+                          method: :delete,
+                          data: {confirm: 'Biztos?'} %></td>
         </tr>
     <% end %>
   </table>

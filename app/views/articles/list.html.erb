@@ -1,7 +1,8 @@
-
 <h2 class="text-center">Bejegyzések listázása</h2>
+
 <div class="table-responsive">
   <table class="table table-striped table-hover">
+
     <tr>
       <th>Cím</th>
       <th>Hozzáadva</th>
@@ -9,8 +10,10 @@
       <th>Létrehozó</th>
       <th colspan="2"></th>
     </tr>
+
     <% @articles.each do |article| %>
         <tr>
+
           <td>
             <%= link_to article.title, article_path(article) %>
           </td>
@@ -24,9 +27,12 @@
           <td><span class="glyphicon glyphicon-time"></span>
             <%= link_to 'Szerkesztés', edit_article_path(article) %></td>
           <td><%= link_to 'Törlés', article_path(article),
-                        method: :delete,
-                        data: { confirm: 'Biztos?' } %></td>
+                          method: :delete,
+                          data: { confirm: 'Biztos?' } %></td>
+
         </tr>
+
     <% end %>
+
   </table>
 </div>

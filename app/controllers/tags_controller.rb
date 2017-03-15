@@ -13,12 +13,12 @@ class TagsController < ApplicationController
 
   def new
     @tag = Tag.new
-    @articles = Article.all
+    @articles = Article.all # HABTM kapcsolat miatt kell!
   end
 
   def edit
     @tag = Tag.find(params[:id])
-    @articles = Article.all
+    @articles = Article.all # HABTM kapcsolat miatt kell!
   end
 
   def create
@@ -43,17 +43,16 @@ class TagsController < ApplicationController
   def destroy
     @tag = Tag.find(params[:id])
 
-    # Törölni kell a kapcsolótábla-beli elemeket is
-    @tagitem = tag_path
+    # # Törölni kell a kapcsolótábla-beli elemeket is
+    # @tagitem = tag_path
     @tag.destroy
-
 
     redirect_to tags_path
   end
 
   private
   def tag_params
-    params.require(:tag).permit(:name, :articles_id => [])
+    params.require(:tag).permit(:name, :articles_id => []) # HABTM kapcsolat miatt kell!
   end
 
 end

@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  # Felhasználókezelés, és védelem
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!, except: [:index, :show]
@@ -27,6 +28,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
+    # Az aktuális felhasználót a Devise (?) szolgáltatja, létrehozáskor hozzáfűzzük a cikkhez.
     @user = current_user
     @article = Article.new(article_params)
     @article.user_id = @user.id
@@ -55,8 +57,10 @@ class ArticlesController < ApplicationController
   end
 
   private
-    def article_params
-      params.require(:article).permit(:title, :text, :tags_id => [])
-    end
+
+  # Itt adjuk meg a "módosítható" paramétereket. A tags_id-re a kapcsolótábla miatt van szükség. (HABTM kapcsolat)
+  def article_params
+    params.require(:article).permit(:title, :text, :tags_id => [])
+  end
 
 end

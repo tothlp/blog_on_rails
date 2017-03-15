@@ -1,16 +1,23 @@
 <h1>Blog</h1>
+
 <% @articles.each do |article| %>
     <h2>
       <%= link_to article.title, article_path(article) %>
     </h2>
+
     <h5><span class="glyphicon glyphicon-user"></span> <%= article.user.username %>
       <span class="glyphicon glyphicon-time"></span> <%= article.created_at.strftime("%Y.%m.%d. %H:%m") %>
-      <span class="badge"><%= article.comments.count %></span><small> hozzászólás</small></h5>
+      <span class="badge"><%= article.comments.count %></span>
+      <small> hozzászólás</small>
+    </h5>
+
     <h5><span class="glyphicon glyphicon-tags"></span>
       <% article.tags.each do |tag| %>
           <span class="label label-default"> <%= tag.name %></span>
       <% end %>
     </h5>
+
     <%= raw(article.text) %>
     <hr>
+
 <% end %>

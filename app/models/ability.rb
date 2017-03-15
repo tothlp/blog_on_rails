@@ -1,7 +1,12 @@
 class Ability
   include CanCan::Ability
 
+  # A CanCan-t azért használjuk, hogy a usereket az admin kezelje, és ne legyen regisztráció.
+  # A cancan végzi el a hitelesítés egy részét.
+
   def initialize(user)
+      # A user akkor kezelheti a felhasználókat, ha admin.
+      # A user.admin? rész módosítva lett a roles helyett. Egyszerűsítés.
       can :manage, :all if user.admin?
 
     # Define abilities for the passed in user here. For example:

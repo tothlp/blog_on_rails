@@ -3,42 +3,56 @@
 <head>
   <title><%= Setting.find_by_key('title').value %></title>
   <%= csrf_meta_tags %>
+
+  <!--Bootstrap-->
   <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" %>
   <%= stylesheet_link_tag 'application', media: 'all',
                           'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- jQuery library -->
+  <!-- Húzzuk be a jQuery-t -->
 
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" %>
 
-  <!-- Latest compiled JavaScript -->
+  <!-- Húzzuk be a Bootstrap JavaScript-jét -->
   <%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" %>
 
-
+  <!--IE9-nél régebbi böngészőhöz optimalizálás-->
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
   </script>
   <![endif]-->
 </head>
+
 <body>
+
+<!-- Navigáció. Csak ez van a header-ben! -->
 <%= render 'layouts/header' %>
+
 <div class="container">
+
+  <!-- A fejléc -->
   <%= render 'layouts/jumboheader' %>
+
+  <!--Tároló-->
   <div class="jumbotron" id="bigcontainer">
+
+    <!-- Hibaüzenetek flesselése -->
     <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %> alert-success">
           <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
           <%= value %>
         </div>
     <% end %>
+
+    <!-- Tartalom -->
     <%= yield %>
   </div>
 
 
 </div>
+<!-- Lábléc -->
 <%= render 'layouts/footer' %>
 </body>
 </html>

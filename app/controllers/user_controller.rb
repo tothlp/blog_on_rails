@@ -1,7 +1,9 @@
 class UserController < ApplicationController
+  # Hitelesítés?
   load_and_authorize_resource
 
   def index
+    # Az aktuális felhasználót ne számítsa bele!
     @users = User.except(:id => current_user.id)
   end
 
@@ -39,7 +41,7 @@ class UserController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     if @user.destroy
-      flash[:notice] = "Successfully deleted User."
+      flash[:notice] = "Felhasználó sikeresen törölve!"
       redirect_to root_path
     end
   end

@@ -1,33 +1,37 @@
 <%= form_for @article do |f| %>
 
-        <% if @article.errors.any? %>
-            <div id="error_explanation">
-              <h2>
-                <%= @article.errors.count %> hiba miatt nem hozható létre a bejegyzés:
-              </h2>
-              <ul>
-                <% @article.errors.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-        <% end %>
+    <!--# Hibaüzenetek kiírása-->
+    <% if @article.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= @article.errors.count %> hiba miatt nem hozható létre a bejegyzés:
+          </h2>
+          <ul>
+            <% @article.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
 
+    <!--# Űrlap-->
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon">Cím</span>
         <%= f.text_field :title, class: 'form-control input-lg' %>
       </div>
-        <%= f.text_area :text, :class => "tinymce", :rows => 15, :cols => 20 %>
-        <%= tinymce %>
+
+      <!--#Szövegszerkesztő beszúrása-->
+      <%= f.text_area :text, :class => "tinymce", :rows => 15, :cols => 20 %>
+      <%= tinymce %>
 
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i> </span>
         <%= f.collection_select(:tags, Tag.all, :id, :name,) %>
       </div>
 
-      </div>
+    </div>
 
-        <%= f.submit "Uccu!", class: 'btn btn-success' %>
+    <%= f.submit "Mentés", class: 'btn btn-success' %>
 
 <% end %>
