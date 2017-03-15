@@ -1,10 +1,25 @@
 <footer class="nav footer text-center navbar-inverse">
+
+  <!--Social Linkek-->
+  <% social = [:twitter, :github, :instagram, :facebook] %>
+
+  <!--Bejárjuk a tömböt, és a helperek segítségével generálunk ikonos linket. ^^ -->
+  <% social.each do |site| %>
+      <%= link_to "https://www.#{site}.com/tothlp", :target => "_blank" do %>
+          <%= fa_stacked_icon "#{site} inverse", base: "circle", class: "fa-1x" %>
+      <% end %>
+  <% end %>
+  <%= link_to "https://www.linkedin.com/in/tothlp/", :target => "_blank" do %>
+      <%= fa_stacked_icon "linkedin inverse", base: "circle", class: "fa-1x" %>
+  <% end %>
+
+  <%= link_to "https://open.spotify.com/user/tothl", :target => "_blank" do %>
+      <%= fa_stacked_icon "spotify inverse", base: "circle", class: "fa-1x" %>
+  <% end %>
+
+  <br/>
   <small>
-    Tóth László, 2017
+    Létrehozva Ruby on Rails segítségével. <%= fa_icon "copyright" %> Tóth László, 2017
   </small>
 
-  <%= fa_stacked_icon "twitter inverse", base: "circle", class: "fa-1x" %>
-  <%= fa_stacked_icon "github inverse", base: "circle", class: "fa-1x" %>
-  <%= fa_stacked_icon "instagram inverse", base: "circle", class: "fa-1x" %>
-  <%= fa_stacked_icon "facebook inverse", base: "circle", class: "fa-1x" %>
-      </footer>
+</footer>
