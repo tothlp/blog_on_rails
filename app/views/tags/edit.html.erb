@@ -1,0 +1,5 @@
+<h1>Címke szerkesztése</h1>
+
+<%= form_for @tag, :url => tag_path do |f| %>
+    <%= render :partial => 'form', :locals => { :f => f } %>
+<% end %>
