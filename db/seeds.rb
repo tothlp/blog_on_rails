@@ -35,7 +35,7 @@ settings=[
     ["header_description", "Programtervező informatikus @ SZTE", "Fejléc leírása"],
     ["dateformat", "%Y.%m.%d", "Rövid dátumformátum"],
     ["dateformat_long", "%Y.%m.%d %H:%m", "Dátumformátum idővel"],
-    ["footer_text"], "Létrehozva Ruby on Rails segítségével.  Tóth László, 2017", "Lábléc szöveg"]
+    ["footer_text", "Létrehozva Ruby on Rails segítségével.  Tóth László, 2017", "Lábléc szöveg"]
 ]
 
 settings.each do |key, value, description|
