@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require tinymce-jquery
+//= require select2-full
+//= require select2_locale_"hu"

@@ -1,6 +1,27 @@
 toolbar:
-  - styleselect | bold italic | undo redo
-  - image | link
+  - formatselect fontsizeselect | bold italic underline strikethrough removeformat | alignleft aligncenter alignright alignjustify alignnone | outdent indent |
+  - bullist numlist | undo redo | image link emoticons media table | preview code visualblocks visualchars | blockquote
 plugins:
-  - image
+  - image imagetools
   - link
+  - code
+  - emoticons
+  - lists
+  - media
+  - preview
+  - searchreplace
+  - table
+  - visualblocks
+  - visualchars
+language:
+  - hu_HU
+image_advtab:
+  - true
+image_class_list: [
+      {title: 'None', value: ''},
+      {title: 'Kerek', value: 'img-circle'}
+    ]
+images_upload_base_path:
+  - /images
+images_upload_credentials:
+  - true

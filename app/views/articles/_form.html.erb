@@ -27,7 +27,8 @@
 
       <div class="input-group">
         <span class="input-group-addon"><i class="glyphicon glyphicon-tags"></i> </span>
-        <%= f.collection_select(:tags, Tag.all, :id, :name,) %>
+        <%= f.collection_select(:tags, Tag.all, :id, :name, id:'tags') %>
+
       </div>
 
     </div>

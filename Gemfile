@@ -22,12 +22,14 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-#Saját cuccok
+# Saját cuccok
 gem 'bootstrap-sass', '3.3.6'
 gem 'tinymce-rails'
+gem 'tinymce-rails-langs'
 gem 'devise'
 gem 'cancan'
 gem 'font-awesome-rails'
+gem 'select2-rails'
 
 
 
