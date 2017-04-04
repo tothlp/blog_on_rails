@@ -25,7 +25,3 @@ images_upload_base_path:
   - /images
 images_upload_credentials:
   - true
-images_upload_url:
-  - postAcceptor.php
-automatic_uploads:
-  - true
