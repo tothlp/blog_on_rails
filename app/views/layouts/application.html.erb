@@ -33,13 +33,11 @@
 <!-- Navigáció. Csak ez van a header-ben! -->
 <%= render 'layouts/header' %>
 
-<div class="container">
-
   <!-- A fejléc -->
   <%= render 'layouts/jumboheader' %>
 
   <!--Tároló-->
-  <div class="jumbotron" id="bigcontainer">
+  <div class="container-fluid">
 
     <!-- Hibaüzenetek flesselése -->
     <% flash.each do |key, value| %>
@@ -53,8 +51,6 @@
     <%= yield %>
   </div>
 
-
-</div>
 <!-- Lábléc -->
 <%= render 'layouts/footer' %>
 </body>

@@ -31,14 +31,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 1.5em;
+  //font-size: 1.5em;
   letter-spacing: -2px;
   margin-bottom: 20px;
   text-align: center;
-}
-
-.ptitle {
-  font-size: 17px;
 }
 
 h2 {
@@ -49,12 +45,6 @@ h2 {
   font-weight: normal;
   color: #777;
 }
-
-//p {
-//  font-size: 0.7em;
-//  line-height: 1.7em;
-//}
-
 
 /* header */
 
@@ -78,11 +68,12 @@ h2 {
 
 footer {
   margin-top: 45px;
-  padding-top: 5px;
   border-top: 1px solid #eaeaea;
-  background-color: #555;
+  background-color: #222;
   //color: white;
   color: #555;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 footer a {
@@ -116,9 +107,4 @@ footer ul li {
 .navbar {
   margin-bottom: 0;
   border-radius: 0;
-}
-
-#bigcontainer{
-  paddig-top: 0;
-  margin-top: 0;
 }
