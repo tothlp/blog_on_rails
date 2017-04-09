@@ -67,13 +67,15 @@ h2 {
 /* footer */
 
 footer {
-  margin-top: 45px;
+  //margin-top: 45px;
   border-top: 1px solid #eaeaea;
   background-color: #222;
   //color: white;
   color: #555;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 footer a {
